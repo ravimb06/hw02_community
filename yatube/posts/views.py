@@ -24,4 +24,3 @@ def group_posts(request, slug):
         'title': title,
     }
     return render(request, template, context)
-    
