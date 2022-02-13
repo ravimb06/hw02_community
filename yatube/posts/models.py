@@ -28,6 +28,6 @@ class Post(models.Model):
         null=True,
         related_name='group'
     )
-    
+
     class Meta:
         ordering = ['pub_date']
