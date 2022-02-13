@@ -1,13 +1,10 @@
 {% extends 'base.html' %}
- 
+
 {% block content %}
-<div class="container py-5">
-  <h1>Лев Толстой – зеркало русской революции.</h1>
-  <p>
-    Группа тайных поклонников графа.
-  </p>
+  <div class="container py-5">
   <article>
   {% for post in posts %}
+    <h1>Пост сообщества: {{ post.group.title }}</h1>
     <ul>
       <li>
         Автор: {{ post.author.get_full_name }}
@@ -16,7 +13,7 @@
         Дата публикации: {{ post.pub_date|date:"d E Y" }}
       </li>
     </ul>
-    <p>{{ post.text }}</p>    
+    <p>{{ post.text|linebreaksbr }}</p>    
     {% if not forloop.last %}<hr>{% endif %}
   {% endfor %}  
   </article>
