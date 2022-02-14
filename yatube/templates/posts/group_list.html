@@ -1,10 +1,14 @@
 {% extends 'base.html' %}
-
+{% block title %}
+  {% for post in posts %}
+    Пост сообщества: {{ post.group.title }}
+  {% endfor %}
+{% endblock %}
 {% block content %}
   <div class="container py-5">
   <article>
   {% for post in posts %}
-    <h1>Пост сообщества: {{ post.group.title }}</h1>
+    <h1>Сообщество: {{ post.group.title }}</h1>
     <ul>
       <li>
         Автор: {{ post.author.get_full_name }}
