@@ -15,8 +15,10 @@ def index(request):
 def group_posts(request, slug):
     template = 'posts/group_list.html'
     group = get_object_or_404(Group, slug=slug)
-    posts = group.groups.all()
+    posts = group.group_posts.all()
+    title = group.title
     context = {
+        'title': title,
         'group': group,
         'posts': posts,
     }
